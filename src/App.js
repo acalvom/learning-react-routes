@@ -3,30 +3,13 @@ import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Home from "./components/Home";
 import Users from "./components/Users";
 import Personal from "./components/Personal";
+import Navbar from "./components/Navbar";
 
 function App() {
     return (
         <Router>
             <div className="container">
-                <nav className="navbar navbar-expand-sm bg-light">
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <Link to="/" className="nav-link">
-                                Home
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/personal" className="nav-link">
-                                Personal
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/users" className="nav-link">
-                                Users
-                            </Link>
-                        </li>
-                    </ul>
-                </nav>
+                <Navbar/>
                 <hr/>
                 <Switch>
                     {/* Para redirigir a la ruta que encaja con la URL*/}
