@@ -18,6 +18,19 @@ function App() {
                         </li>
                     </ul>
                 </nav>
+                <hr/>
+                <Switch>
+                    {/* Para redirigir a la ruta que encaja con la URL*/}
+                    <Route path="/personal">
+                        Personal page
+                    </Route>
+                    <Route path="/users">
+                        Users page
+                    </Route>
+                    <Route path="/home" exact>
+                        Home page
+                    </Route>
+                </Switch>
             </div>
         </Router>
     );
