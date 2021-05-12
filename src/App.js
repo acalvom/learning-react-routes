@@ -11,13 +11,19 @@ function App() {
                 <nav className="navbar navbar-expand-sm bg-light">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Home</a>
+                            <Link to="/" className="nav-link">
+                                Home
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Personal</a>
+                            <Link to="/personal" className="nav-link">
+                                Personal
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Users</a>
+                            <Link to="/users" className="nav-link">
+                                Users
+                            </Link>
                         </li>
                     </ul>
                 </nav>
@@ -30,7 +36,7 @@ function App() {
                     <Route path="/users">
                         <Users/>
                     </Route>
-                    <Route path="/home" exact>
+                    <Route path="/" exact>
                         <Home/>
                     </Route>
                 </Switch>
