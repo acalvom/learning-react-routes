@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Home from "./components/Home";
 import Users from "./components/Users";
 import Personal from "./components/Personal";
@@ -13,15 +13,9 @@ function App() {
                 <hr/>
                 <Switch>
                     {/* Para redirigir a la ruta que encaja con la URL*/}
-                    <Route path="/personal">
-                        <Personal/>
-                    </Route>
-                    <Route path="/users">
-                        <Users/>
-                    </Route>
-                    <Route path="/" exact>
-                        <Home/>
-                    </Route>
+                    <Route path="/personal"><Personal/></Route>
+                    <Route path="/users"><Users/></Route>
+                    <Route path="/" exact><Home/></Route>
                 </Switch>
             </div>
         </Router>
