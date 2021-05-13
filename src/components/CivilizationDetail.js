@@ -7,15 +7,15 @@ const CivilizationDetails = () => {
     const {name} = useParams();
 
     useEffect(() => {
-        document.title = 'Civilizations';
-        getDetails().then();
-    }, []);
+        document.title = 'Civilization Details';
+        const getDetails = async () => {
+            const data = await fetch('https://age-of-empires-2-api.herokuapp.com/api/v1/civilization/' + name);
+            const dataJSON = await data.json();
+            setDetail(dataJSON);
+        }
+        getDetails();
+    }, [name]); // Para indicar que name es el parámetro al que hacer seguimiento
 
-    const getDetails = async () => {
-        const data = await fetch('https://age-of-empires-2-api.herokuapp.com/api/v1/civilization/' + name);
-        const dataJSON = await data.json();
-        setDetail(dataJSON);
-    }
 
     return (
         <div>
