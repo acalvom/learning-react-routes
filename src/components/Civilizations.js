@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
+import {Link} from "react-router-dom";
 
 const Civilizations = () => {
-    const [civilization, setCivilization] = useState(null);
+    const [civilization, setCivilization] = useState([]);
 
     useEffect(() => {
         document.title = 'Civilizations';
-        getCivilizations().then()
+        getCivilizations().then();
     }, [])
 
     const getCivilizations = async () => {
@@ -15,8 +16,6 @@ const Civilizations = () => {
     }
 
     return (
-
-
         <div>
             <h4> Civilizations Page </h4>
             <table>
@@ -31,14 +30,15 @@ const Civilizations = () => {
                 {
                     civilization.map((civ) =>
                         <tr key={civ.id}>
-                            <td>{civ.name}</td>
+                            <td>
+                                <Link to={`/civilizations/${civ.name}`}> {civ.name}</Link>
+                            </td>
                             <td> {civ.army_type}</td>
                             <td> {civ.expansion}</td>
                         </tr>)
                 }
                 </tbody>
             </table>
-
         </div>
     );
 };
