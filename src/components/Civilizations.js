@@ -1,12 +1,44 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 const Civilizations = () => {
-    const [civilization, setCivilization] = useState([]);
+    const [civilization, setCivilization] = useState(null);
 
+    useEffect(() => {
+        document.title = 'Civilizations';
+        getCivilizations().then()
+    }, [])
+
+    const getCivilizations = async () => {
+        const data = await fetch('https://age-of-empires-2-api.herokuapp.com/api/v1/civilizations');
+        const dataJSON = await data.json();
+        setCivilization(dataJSON.civilizations);
+    }
 
     return (
+
+
         <div>
             <h4> Civilizations Page </h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Army</th>
+                    <th>Expansion</th>
+                </tr>
+                </thead>
+                <tbody>
+                {
+                    civilization.map((civ) =>
+                        <tr key={civ.id}>
+                            <td>{civ.name}</td>
+                            <td> {civ.army_type}</td>
+                            <td> {civ.expansion}</td>
+                        </tr>)
+                }
+                </tbody>
+            </table>
+
         </div>
     );
 };
